@@ -1,0 +1,13 @@
+[package]
+name = "main_terminal"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+crossterm = "0.27.0"
+lib_employees = { path="../lib_employees"}
+ratatui = "0.25.0"
