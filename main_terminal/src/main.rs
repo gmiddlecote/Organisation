@@ -48,7 +48,7 @@ fn main() -> Result<()> {
     // end of exit ratatui
 }
 
-fn check() {
+fn _check() {
     let emp_1 = Person::new("A", "B", "C", "27-06-1974", Gender::Male);
     let emp_2 = Person::new("X", "", "Z", "10-01-1950", Gender::Female);
     println!(
