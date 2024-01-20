@@ -1,14 +1,7 @@
 /// Employee
-// use std::fmt;
-// use std::fmt::Display;
-// use std::default;
-
 // add uuid
 use uuid::Uuid;
 
-// add chrono
-// use chrono::format::ParseError;
-// use chrono::prelude::*;
 use chrono::{Local, NaiveDate};
 
 // Define an enum for Gender
@@ -50,8 +43,7 @@ impl Person {
 
     // Generate an Employee ID
     fn generate_emp_id() -> Uuid {
-        let id = Uuid::new_v4();
-        id
+        Uuid::new_v4()
     }
 
     // Get current age
@@ -62,7 +54,6 @@ impl Person {
         let duration = today.signed_duration_since(date_of_birth);
 
         //Calculate the difference in years
-        let years_difference = duration.num_days() / 365;
-        years_difference
+        duration.num_days() / 365
     }
 }
