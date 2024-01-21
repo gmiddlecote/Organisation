@@ -5,17 +5,11 @@ use uuid::Uuid;
 use chrono::{Local, NaiveDate};
 
 // Define an enum for Gender
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub enum Gender {
+    #[default]
     Male,
     Female,
-}
-
-// set a fefault gender
-impl Default for Gender {
-    fn default() -> Self {
-        Gender::Male
-    }
 }
 
 #[derive(Debug, Default)]
@@ -50,8 +44,8 @@ impl Person {
     pub fn get_current_age(&self) -> i64 {
         let today = Local::now().date_naive();
         // dereference the dob
-        let date_of_birth = *(&self.dob);
-        let duration = today.signed_duration_since(date_of_birth);
+        // let date_of_birth = *(&self.dob);
+        let duration = today.signed_duration_since(*(&self.dob));
 
         //Calculate the difference in years
         duration.num_days() / 365
