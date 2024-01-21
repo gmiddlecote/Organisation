@@ -12,6 +12,52 @@ pub enum Gender {
     Female,
 }
 
+// Define an enum for Blood Types
+#[derive(Debug)]
+pub enum BloodType {
+    A,
+    B,
+    AB,
+    O,
+}
+
+// Define an enum for Blood RH Factor
+#[derive(Debug)]
+pub enum RHFactor {
+    Positive,
+    Negative,
+}
+
+// Define an enum for complete blood type
+#[derive(Debug, Default)]
+pub enum CompleteBloodType {
+    APositive,
+    ANegative,
+    #[default]
+    BPositive,
+    BNegative,
+    ABPositive,
+    ABNegative,
+    OPositive,
+    ONegative,
+}
+
+impl CompleteBloodType {
+    pub fn from_components(abo: BloodType, rh: RHFactor) -> CompleteBloodType {
+        match (abo, rh) {
+            (BloodType::A, RHFactor::Positive) => CompleteBloodType::APositive,
+            (BloodType::A, RHFactor::Negative) => CompleteBloodType::ANegative,
+            (BloodType::B, RHFactor::Positive) => CompleteBloodType::BPositive,
+            (BloodType::B, RHFactor::Negative) => CompleteBloodType::BNegative,
+            (BloodType::AB, RHFactor::Positive) => CompleteBloodType::ABPositive,
+            (BloodType::AB, RHFactor::Negative) => CompleteBloodType::ABNegative,
+            (BloodType::O, RHFactor::Positive) => CompleteBloodType::OPositive,
+            (BloodType::O, RHFactor::Negative) => CompleteBloodType::ONegative,
+        }
+    }
+}
+
+// Define a Person
 #[derive(Debug, Default)]
 pub struct Person {
     pub first_name: String,
@@ -20,11 +66,20 @@ pub struct Person {
     pub emp_id: Option<Uuid>,
     pub dob: NaiveDate,
     pub gender: Gender,
+    pub complete_bloodtype: CompleteBloodType,
 }
 
 impl Person {
     // Initalize a new person
-    pub fn new(first: &str, middle: &str, last: &str, dob: &str, gender: Gender) -> Person {
+    pub fn new(
+        first: &str,
+        middle: &str,
+        last: &str,
+        dob: &str,
+        gender: Gender,
+        abo: BloodType,
+        rh_factor: RHFactor,
+    ) -> Person {
         Person {
             first_name: first.to_string(),
             middle_name: Some(middle.to_string()),
@@ -32,6 +87,7 @@ impl Person {
             emp_id: Some(Person::generate_emp_id()),
             dob: NaiveDate::parse_from_str(dob, "%d-%m-%Y").unwrap(),
             gender,
+            complete_bloodtype: CompleteBloodType::from_components(abo, rh_factor),
         }
     }
 

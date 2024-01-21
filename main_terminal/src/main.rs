@@ -8,7 +8,7 @@ use ratatui::{
     prelude::{CrosstermBackend, Stylize, Terminal},
     widgets::Paragraph,
 };
-use std::io::{stdout, IsTerminal, Result};
+use std::io::{stdout, Result};
 
 fn main() -> Result<()> {
     // start ratatui
@@ -49,25 +49,44 @@ fn main() -> Result<()> {
 }
 
 fn _check() {
-    let emp_1 = Person::new("A", "B", "C", "27-06-1974", Gender::Male);
-    let emp_2 = Person::new("X", "", "Z", "10-01-1950", Gender::Female);
+    let emp_1 = Person::new(
+        "A",
+        "B",
+        "C",
+        "27-06-1974",
+        Gender::Male,
+        BloodType::A,
+        RHFactor::Positive,
+    );
+    let emp_2 = Person::new(
+        "X",
+        "",
+        "Z",
+        "10-01-1950",
+        Gender::Female,
+        BloodType::B,
+        RHFactor::Positive,
+    );
     println!(
-        "{} {:?} {:?} {:?} {} {} years {:?}",
+        "{} {:?} {:?} {:?} {} {} years {:?} {:?}",
         emp_1.first_name,
         emp_1.middle_name,
         emp_1.last_name,
         emp_1.emp_id,
         emp_1.dob.to_string(),
         emp_1.get_current_age(),
-        emp_1.gender
+        emp_1.gender,
+        emp_1.complete_bloodtype,
     );
     println!(
-        "{} {:?} {:?} {:?} {} {} years",
+        "{} {:?} {:?} {:?} {} {} years {:?} {:?}",
         emp_2.first_name,
         emp_2.middle_name,
         emp_2.last_name,
         emp_2.emp_id,
         emp_2.dob.to_string(),
-        emp_2.get_current_age()
+        emp_2.get_current_age(),
+        emp_2.gender,
+        emp_2.complete_bloodtype,
     );
 }
