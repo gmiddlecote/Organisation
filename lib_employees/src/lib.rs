@@ -67,10 +67,13 @@ pub struct Person {
     pub dob: NaiveDate,
     pub gender: Gender,
     pub complete_bloodtype: CompleteBloodType,
+    pub height: f64, // in cms
+    pub weight: f64, // in kgs
 }
 
 impl Person {
     // Initalize a new person
+    #[allow(clippy::too_many_arguments)]
     pub fn new(
         first: &str,
         middle: &str,
@@ -79,6 +82,8 @@ impl Person {
         gender: Gender,
         abo: BloodType,
         rh_factor: RHFactor,
+        height: f64,
+        weight: f64,
     ) -> Person {
         Person {
             first_name: first.to_string(),
@@ -88,6 +93,8 @@ impl Person {
             dob: NaiveDate::parse_from_str(dob, "%d-%m-%Y").unwrap(),
             gender,
             complete_bloodtype: CompleteBloodType::from_components(abo, rh_factor),
+            height,
+            weight,
         }
     }
 
