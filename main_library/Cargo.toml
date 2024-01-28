@@ -1,5 +1,5 @@
 [package]
-name = "lib_employees"
+name = "main_library"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,11 +7,8 @@ edition = "2021"
 
 [dependencies]
 chrono = "0.4.31"
+rust_iso3166 = "0.1.11"
 
 [dependencies.uuid]
 version = "1.6.1"
-features = [
-  "v4",
-  "fast-rng",
-  "macro-diagnostics"
-]
+features = ["v4", "fast-rng", "macro-diagnostics"]

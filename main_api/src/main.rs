@@ -1,9 +1,12 @@
-// use serde::{Deserialize, Serialize};
-// use surrealdb::engine::remote::ws::Ws;
-// use surrealdb::opt::auth::Root;
-// use surrealdb::sql::Thing;
-// use surrealdb::Surreal;
+#[macro_use]
+extern crate rocket;
 
-fn main() {
-    println!("Hello, world!");
+#[get("/")]
+fn index() -> &'static str {
+    "hello world"
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build().mount("/", routes![index])
 }
