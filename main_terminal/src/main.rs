@@ -6,6 +6,7 @@ use crossterm::{
 };
 
 // import the person library
+use main_library::employee as lib_employee;
 use main_library::person as lib_person;
 
 // import ratatui
