@@ -5,8 +5,10 @@ members = ["main_terminal", "main_web", "main_api", "main_library"]
 [workspace.package]
 version = "0.1.0"
 authors = ["George Middlecote"]
+categories = ["Office Software"]
 description = "Application to manage an Organisation"
 edition = "2021"
+
 
 [profile.dev]
 opt-level = 0
@@ -17,3 +19,7 @@ debug = true
 opt-level = 2 # Specify the optimization level (0 to 3)
 lto = true    # Enable link-time optimization
 debug = false # Strip debug information
+strip = true
+
+[badges]
+maintenance = { status = "actively-developed" }
