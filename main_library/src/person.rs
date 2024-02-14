@@ -2,8 +2,6 @@
 //! - Person
 //!
 
-// use std::fmt;
-
 use chrono::{Local, NaiveDate};
 use rust_iso3166::*;
 use uuid::Uuid;

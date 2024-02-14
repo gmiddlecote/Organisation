@@ -52,7 +52,7 @@ impl Employee {
         Employee {
             person,
             department,
-            designation.to_string(),
+            designation: designation.to_string(),
             provident_fund_account: Some(provident_fund_account.to_string()),
 
             date_employment_start: Some(
@@ -72,9 +72,9 @@ mod tests {
     #[test]
     fn test_department() {
         let departments = Department {
-        name: vec!["Information Technology", "Human Resources"] 
-    };
-        assert_eq!(departments.get(0).name, "Information Technology" );
+            name: vec!["Information Technology", "Human Resources"],
+        };
+        assert_eq!(departments.get(0).name, "Information Technology");
     }
 
     //#[test]
@@ -134,13 +134,13 @@ mod tests {
     //        grade: 20,
     //    };
 
-   // let department_list = vec!["Information Technology", "Human Resources"];
+    // let department_list = vec!["Information Technology", "Human Resources"];
 
-   //     let employee_1: Employee = {
-   //         person: emp_1,
-   //         department: 
-   //         designation: 
-   //     }
+    //     let employee_1: Employee = {
+    //         person: emp_1,
+    //         department:
+    //         designation:
+    //     }
 
-   // }
+    // }
 }
